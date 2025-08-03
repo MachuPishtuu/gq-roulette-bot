@@ -62,6 +62,7 @@ Arrancar Melee,Arrancar,0,Side,Speed Swimsuit Halibel
 Arrancar Melee,Arrancar,0,Side,Technique CFYOW Kenpachi
 Arrancar Melee,Arrancar,0,Side,Technique CFYOW Halibel
 Arrancar Melee,Arrancar,0,Side,Heart Soi Fon
+Arrancar Ranged,Arrancar,1,Lead,Power TYBW Jushiro
 Arrancar Ranged,Arrancar,1,Lead,Technique Magic Society Askin
 Arrancar Ranged,Arrancar,1,Lead,Power Toshiro
 Arrancar Ranged,Arrancar,1,Lead,Speed TYBW Zombietta
@@ -72,6 +73,7 @@ Arrancar Ranged,Arrancar,1,Lead,Mind 7th Anniversary Ichigo
 Arrancar Ranged,Arrancar,1,Lead,Speed Azashiro Kenpachi
 Arrancar Ranged,Arrancar,1,Lead,Mind TYBW Gremmy
 Arrancar Ranged,Arrancar,1,Lead,Speed CFYOW Seinosuke
+Arrancar Ranged,Arrancar,1,Side,Power TYBW Jushiro
 Arrancar Ranged,Arrancar,1,Side,Technique TYBW Robert
 Arrancar Ranged,Arrancar,1,Side,Technique Nnoitora
 Arrancar Ranged,Arrancar,1,Side,Technique TYBW Aizen
@@ -166,6 +168,7 @@ Quincy Melee,Quincy,0,Lead,Mind Lisa
 Quincy Melee,Quincy,0,Side,Mind TYBW Mila Rose
 Quincy Melee,Quincy,0,Side,Heart Parasol Riruka
 Quincy Melee,Quincy,0,Side,Speed Grimmjow
+Quincy Ranged,Quincy,1,Lead,Technique TYBW Renji
 Quincy Ranged,Quincy,1,Lead,Mind Xmas Retsu
 Quincy Ranged,Quincy,1,Lead,Mind TYBW Swimsuit Meninas
 Quincy Ranged,Quincy,1,Lead,Power Cyber Ulquiorra
@@ -174,6 +177,7 @@ Quincy Ranged,Quincy,1,Lead,Mind BTW Balgo
 Quincy Ranged,Quincy,1,Lead,Technique Lunar Rukia
 Quincy Ranged,Quincy,1,Lead,Speed Akon
 Quincy Ranged,Quincy,1,Lead,Power Xmas Yoruichi
+Quincy Ranged,Quincy,1,Side,Technique TYBW Renji
 Quincy Ranged,Quincy,1,Side,Power Xmas Nemu
 Quincy Ranged,Quincy,1,Side,Heart Retsu
 Quincy Ranged,Quincy,1,Side,Power Xmas Yoruichi
@@ -305,3 +309,4 @@ Human Ranged,Human,1,Side,Mind Halibel
 Human Ranged,Human,1,Side,Technique TYBW Kirinji Tenjiro
 Human Ranged,Human,1,Side,Heart TYBW Kirio
 Human Ranged,Human,1,Side,Technique New Year Mayuri
+
