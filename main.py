@@ -8,6 +8,35 @@ import csv
 import random
 import os
 from datetime import datetime, timedelta
+import csv
+import os
+
+# Path to store data (on Render, the only persistent directory is /data)
+DATA_FILE = "/data/teams.csv"
+
+# Dictionary to store submitted teams in memory
+submitted_teams = {}
+
+# Load saved data from file when bot starts
+def load_submitted_teams():
+    global submitted_teams
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, mode="r", newline="", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            submitted_teams = {rows[0]: rows[1:] for rows in reader}
+    else:
+        submitted_teams = {}
+
+# Save data to file whenever it changes
+def save_submitted_teams():
+    with open(DATA_FILE, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        for user, team_data in submitted_teams.items():
+            writer.writerow([user] + team_data)
+
+# Call this once at startup
+load_submitted_teams()
+save_submitted_teams()
 
 TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 
