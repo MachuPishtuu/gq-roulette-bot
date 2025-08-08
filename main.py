@@ -8,35 +8,6 @@ import csv
 import random
 import os
 from datetime import datetime, timedelta
-import csv
-import os
-
-# Path to store data (on Render, the only persistent directory is /data)
-DATA_FILE = "/data/teams.csv"
-
-# Dictionary to store submitted teams in memory
-submitted_teams = {}
-
-# Load saved data from file when bot starts
-def load_submitted_teams():
-    global submitted_teams
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, mode="r", newline="", encoding="utf-8") as f:
-            reader = csv.reader(f)
-            submitted_teams = {rows[0]: rows[1:] for rows in reader}
-    else:
-        submitted_teams = {}
-
-# Save data to file whenever it changes
-def save_submitted_teams():
-    with open(DATA_FILE, mode="w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        for user, team_data in submitted_teams.items():
-            writer.writerow([user] + team_data)
-
-# Call this once at startup
-load_submitted_teams()
-save_submitted_teams()
 
 TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 
@@ -291,7 +262,7 @@ async def rerolllead(ctx, *, phase: str):
     # Save into current team (keep existing sides)
     save_current_team(str(user_id), str(ctx.author), phase, lead, current.get("side1"), current.get("side2"))
     last_rolled.setdefault(user_id, {})["lead"] = lead
-    await ctx.send(f"🎯 **Your Lead unit for {phase}**: `{lead}`")
+    await ctx.send(f"🎯 **Your Lead unit for {phase}**: {lead}")
 
 @bot.command()
 async def rerollside1(ctx, *, phase: str):
@@ -316,7 +287,7 @@ async def rerollside1(ctx, *, phase: str):
 
     save_current_team(str(user_id), str(ctx.author), phase, current.get("lead"), side1, current.get("side2"))
     last_rolled.setdefault(user_id, {})["side1"] = side1
-    await ctx.send(f"🛡️ **Your Side 1 unit for {phase}**: `{side1}`")
+    await ctx.send(f"🛡️ **Your Side 1 unit for {phase}**: {side1}")
 
 @bot.command()
 async def rerollside2(ctx, *, phase: str):
@@ -340,7 +311,7 @@ async def rerollside2(ctx, *, phase: str):
 
     save_current_team(str(user_id), str(ctx.author), phase, current.get("lead"), current.get("side1"), side2)
     last_rolled.setdefault(user_id, {})["side2"] = side2
-    await ctx.send(f"🛡️ **Your Side 2 unit for {phase}**: `{side2}`")
+    await ctx.send(f"🛡️ **Your Side 2 unit for {phase}**: {side2}")
 
 @bot.command()
 async def currentteam(ctx, *, phase: str):
@@ -461,4 +432,3 @@ async def gq_help(ctx):
 # ------------------ RUN ------------------
 
 bot.run(TOKEN)
-
