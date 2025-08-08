@@ -262,7 +262,7 @@ async def rerolllead(ctx, *, phase: str):
     # Save into current team (keep existing sides)
     save_current_team(str(user_id), str(ctx.author), phase, lead, current.get("side1"), current.get("side2"))
     last_rolled.setdefault(user_id, {})["lead"] = lead
-    await ctx.send(f"🎯 **Your Lead unit for {phase}**: {lead}")
+    await ctx.send(f"🎯 **Your Lead unit for {phase}**: `{lead}`")
 
 @bot.command()
 async def rerollside1(ctx, *, phase: str):
@@ -287,7 +287,7 @@ async def rerollside1(ctx, *, phase: str):
 
     save_current_team(str(user_id), str(ctx.author), phase, current.get("lead"), side1, current.get("side2"))
     last_rolled.setdefault(user_id, {})["side1"] = side1
-    await ctx.send(f"🛡️ **Your Side 1 unit for {phase}**: {side1}")
+    await ctx.send(f"🛡️ **Your Side 1 unit for {phase}**: `{side1}`")
 
 @bot.command()
 async def rerollside2(ctx, *, phase: str):
@@ -311,7 +311,7 @@ async def rerollside2(ctx, *, phase: str):
 
     save_current_team(str(user_id), str(ctx.author), phase, current.get("lead"), current.get("side1"), side2)
     last_rolled.setdefault(user_id, {})["side2"] = side2
-    await ctx.send(f"🛡️ **Your Side 2 unit for {phase}**: {side2}")
+    await ctx.send(f"🛡️ **Your Side 2 unit for {phase}**: `{side2}`")
 
 @bot.command()
 async def currentteam(ctx, *, phase: str):
