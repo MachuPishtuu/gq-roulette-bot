@@ -1,0 +1,4 @@
+user_id,phase,lead,side1,side2,timestamp
+git add teams.csv
+git commit -m "Add teams.csv for storing rerolled teams"
+git push
