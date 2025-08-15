@@ -1,7 +1,6 @@
 from keep_alive import keep_alive
 
 keep_alive()
-https://github.com/MachuPishtuu/gq-roulette-bot/blob/main/main.py
 import discord
 from discord.ext import commands
 import csv
