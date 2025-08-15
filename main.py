@@ -1,7 +1,7 @@
 from keep_alive import keep_alive
 
 keep_alive()
-
+https://github.com/MachuPishtuu/gq-roulette-bot/blob/main/main.py
 import discord
 from discord.ext import commands
 import csv
@@ -16,7 +16,7 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # === Settings ===
-COOLDOWN_PERIOD = timedelta(hours=1)  # set to 4 later if you want
+COOLDOWN_PERIOD = timedelta(hours=0.25)  # set to 4 later if you want
 SCORES_FILE = "scores.csv"
 TEAMS_FILE = "current_teams.csv"   # new: persistent per-user team storage
 
