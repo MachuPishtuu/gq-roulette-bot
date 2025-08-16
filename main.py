@@ -247,8 +247,49 @@ async def rerollside2(ctx, *, phase: str):
     save_current_team(str(user_id), str(ctx.author), phase, current.get("lead"), current.get("side1"), side2)
     last_rolled.setdefault(user_id, {})["side2"] = side2
     await ctx.send(f"🛡️ **Your Side 2 unit for {phase}**: `{side2}`")
+    # ------------------ OTHER COMMANDS ------------------
 
-# ------------------ KEEP THE REST OF YOUR COMMANDS (submit, leaderboard, etc.) ------------------
-# ... your existing code for submit, leaderboard, phases, myscore, gqhelp ...
+@bot.command()
+async def submit(ctx, *, args=None):
+    # Replace this logic with your actual submit code
+    await ctx.send("✅ Submit command received!")
+
+@bot.command()
+async def submitp1(ctx, *, args=None):
+    # Replace this logic with your actual submitp1 code
+    await ctx.send("✅ SubmitP1 command received!")
+
+@bot.command()
+async def gqhelp(ctx):
+    # Replace this logic with your actual gqhelp code
+    help_text = """
+🎮 **GQ Roulette Bot Commands**
+!rerollteam <phase> - Reroll your team
+!rerolllead <phase> - Reroll your lead
+!rerollside1 <phase> - Reroll side 1
+!rerollside2 <phase> - Reroll side 2
+!submit - Submit scores
+!submitp1 - Submit Phase 1 score
+!leaderboard - Show leaderboard
+!phases - List all phases
+!myscore - Show your score
+"""
+    await ctx.send(help_text)
+
+@bot.command()
+async def leaderboard(ctx):
+    # Replace with actual leaderboard logic
+    await ctx.send("📊 Leaderboard coming soon!")
+
+@bot.command()
+async def phases(ctx):
+    # Replace with actual phases listing
+    await ctx.send("🗂️ List of all phases coming soon!")
+
+@bot.command()
+async def myscore(ctx):
+    # Replace with actual user score logic
+    await ctx.send("🎯 Your current score coming soon!")
+
 
 bot.run(TOKEN)
