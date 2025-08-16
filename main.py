@@ -10,6 +10,10 @@ import re
 import math
 import random
 
+# List of Discord IDs allowed to use admin commands
+ADMINS = [1301523585634144318]  # <-- replace with your Discord user ID
+
+
 # ========= CONFIG =========
 TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
 COMMAND_PREFIX = "!"
@@ -207,15 +211,17 @@ def get_active_phase_name_for_now():
 async def on_ready():
     print(f"Bot connected as {bot.user}")
 
-# ========= ADMIN: SET PHASES =========
 @bot.command(name="setphases")
-@commands.has_permissions(administrator=True)
 async def setphases(ctx, *, args: str):
     """
     Usage:
       !setphases Phase One | Phase Two
     Quotes are optional; we split on the first '|'.
     """
+    if ctx.author.id not in ADMINS:
+        await ctx.send("❌ Admins only.")
+        return
+
     parts = [normalize_phase_name(p) for p in args.split("|")]
     if len(parts) < 2:
         await ctx.send("❌ Please provide two phases separated by `|`.\nExample: `!setphases Soul Reaper Melee | Arrancar Ranged`")
@@ -228,12 +234,8 @@ async def setphases(ctx, *, args: str):
     mp[week_start] = {"phase1": phase1, "phase2": phase2}
     save_phases_map(mp)
 
-    await ctx.send(f"✅ Phases set for week starting **{week_start}** (UAE):\n**Phase 1:** {phase1}\n**Phase 2:** {phase2}\nActive window: **{active or 'None (gap)'}**")
+    await ctx.send(f"✅ Phases set for week starting **{week_start}**:\n**Phase 1:** {phase1}\n**Phase 2:** {phase2}\nActive window: **{active or 'None (gap)'}**")
 
-@setphases.error
-async def setphases_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("❌ Admins only.")
 
 # ========= INFO: SHOW PHASES/CURRENT =========
 @bot.command(name="phases")
